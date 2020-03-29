@@ -1,0 +1,6 @@
+services:
+  social_auth_yahoo.manager:
+    class: Drupal\social_auth_yahoo\YahooAuthManager
+    arguments:
+      - '@config.factory'
+      - '@logger.factory'

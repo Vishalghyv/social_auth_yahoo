@@ -1,0 +1,27 @@
+social_auth_yahoo.redirect_to_yahoo:
+  path: '/user/login/yahoo'
+  defaults:
+    _controller: '\Drupal\social_auth_yahoo\Controller\YahooAuthController::redirectToProvider'
+  requirements:
+    # Anonymous users can log in, but authenticated users can also associate a new provider.
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+
+social_auth_yahoo.callback:
+  path: '/user/login/yahoo/callback'
+  defaults:
+    _controller: '\Drupal\social_auth_yahoo\Controller\YahooAuthController::callback'
+  requirements:
+    # Anonymous users can log in, but authenticated users can also associate a new provider.
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+
+social_auth_yahoo.settings_form:
+  path: '/admin/config/social-api/social-auth/yahoo'
+  defaults:
+    _title: 'Social Auth Yahoo settings'
+    _form: '\Drupal\social_auth_yahoo\Form\YahooAuthSettingsForm'
+  requirements:
+    _permission: 'administer social api authentication'
